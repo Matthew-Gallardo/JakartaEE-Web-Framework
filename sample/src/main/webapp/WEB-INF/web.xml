@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+  <display-name>sample</display-name>
+  <context-param>
+    <param-name>company</param-name>
+    <param-value>SBC</param-value>
+  </context-param>
+  <context-param>
+    <param-name>manager</param-name>
+    <param-value>sir Bene</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <servlet-class>org.acumen.training.codes.WelcomeServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>JavaDataServlet</servlet-name>
+    <servlet-class>org.acumen.training.codes.JavaDataServlet</servlet-class>
+    <init-param>
+      <param-name>dbUser</param-name>
+      <param-value>postgre</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dbPass</param-name>
+      <param-value>admin2255</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dbUrl</param-name>
+      <param-value>jdbc:postgresql://localhost:5432/hrms</param-value>
+    </init-param>
+    <load-on-startup>5</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JavaDataServlet</servlet-name>
+    <url-pattern>/jdbc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>welcome</servlet-name>
+    <jsp-file>/WEB-INF/jsp/greet/welcome.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>welcome</servlet-name>
+    <url-pattern>/jsp/welcome.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profile_form</servlet-name>
+    <jsp-file>/WEB-INF/jsp/greet/profile_form.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profile_form</servlet-name>
+    <url-pattern>/jsp/profile_form.html</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profile_result</servlet-name>
+    <jsp-file>/WEB-INF/jsp/greet/profile_result.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profile_result</servlet-name>
+    <url-pattern>/jsp/profile_result.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profile_params</servlet-name>
+    <jsp-file>/WEB-INF/jsp/greet/profile_params.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profile_params</servlet-name>
+    <url-pattern>/jsp/profile_params.jsp</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  	<exception-type>java.lang.NumberFormatException</exception-type>
+  	<location>/error/exception/input_error.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/status/500_error.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/exception/global/handler</location>
+  </error-page>
+  
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>WahahaServlet</display-name>
+    <servlet-name>WahahaServlet</servlet-name>
+    <servlet-class>org.acumen.training.codes.WahahaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WahahaServlet</servlet-name>
+    <url-pattern>/WahahaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LebronServlet</display-name>
+    <servlet-name>LebronServlet</servlet-name>
+    <servlet-class>org.acumen.training.codes.services.LebronServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LebronServlet</servlet-name>
+    <url-pattern>/LebronServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
