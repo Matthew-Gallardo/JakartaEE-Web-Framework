@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	version="6.0">
+
+	<display-name>gallardojwex2</display-name>
+
+	<servlet>
+		<servlet-name>calculator_form</servlet-name>
+		<jsp-file>/WEB-INF/jsp/calculator_form.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>calculator_form</servlet-name>
+		<url-pattern>/calculator_form</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>calculator_result</servlet-name>
+		<jsp-file>/WEB-INF/jsp/calculator_result.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>calculator_result</servlet-name>
+		<url-pattern>/calculator_result</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>bookDbPath</param-name>
+		<param-value>C:\Users\222152\Desktop\Training\Demo\7Track\gallardojwex2\src\main\resources\bookdb.txt</param-value>
+	</context-param>
+
+
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/main.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>/book</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>add_book</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/add_book.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>add_book</servlet-name>
+		<url-pattern>/book/add_book</url-pattern>
+	</servlet-mapping>
+
+
+	
+	
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
