@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 //Controller
 @WebServlet(name = "ProfileServlet", urlPatterns = "/profile/request.html", 
             loadOnStartup = 4)
@@ -46,6 +47,12 @@ public class ProfileServlet extends HttpServlet{
     // Post transaction
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	HttpSession sess = req.getSession();
+    	
+    	String username = (String) sess.getAttribute("username");
+    	String password = (String) sess.getAttribute("password");
+    	System.out.println("username"+ username +"password"+ password);
+    	
     	Map<String, String[]> params = req.getParameterMap();
     	//Request attributes
     	//Validations for both strings and numeric data
@@ -72,7 +79,9 @@ public class ProfileServlet extends HttpServlet{
     	req.setAttribute("firstname", firstname);
     	req.setAttribute("lastname", lastname);
     	req.setAttribute("salary", salary);
-    	
+    	//resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+    	//resp.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+    	//resp.setHeader("Location", "/sample/error/status/500_error.jsp");
     	RequestDispatcher dispatcher = req.getRequestDispatcher("/profile/upper");
     	dispatcher.forward(req, resp);
     }
@@ -84,6 +93,8 @@ public class ProfileServlet extends HttpServlet{
     	String qs = req.getQueryString();
     	String[] values = qs.split("&");
     	req.setAttribute("values", values);
+    	
+    	
     	RequestDispatcher dispatcher = req.getRequestDispatcher("/profile/params");
     	dispatcher.forward(req, resp);
     }

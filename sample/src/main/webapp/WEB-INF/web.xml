@@ -9,6 +9,10 @@
     <param-name>manager</param-name>
     <param-value>sir Bene</param-value>
   </context-param>
+  
+  <listener>
+  <listener-class>org.acumen.training.codes.listener.MessageListener</listener-class>
+  </listener>
   <servlet>
     <servlet-name>WelcomeServlet</servlet-name>
     <servlet-class>org.acumen.training.codes.WelcomeServlet</servlet-class>

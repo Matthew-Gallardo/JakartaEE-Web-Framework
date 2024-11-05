@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginServlet",urlPatterns = "/login")
 public class LoginServlet extends HttpServlet{
@@ -19,9 +20,15 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
-		//username
-		//password
-		resp.sendRedirect("/sample/jsp/profile_form.html");
+		HttpSession sess = req.getSession(true);
+		
+		String username="root";
+		String password="admin2255";
+		
+		sess.setAttribute("username", username);
+		sess.setAttribute("password", password);
+		String newUrl = resp.encodeRedirectURL("/gallardoweb1/jsp/profile_form.html"); // URL Rewriting
+		resp.sendRedirect(newUrl);
 	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,22 @@
 </head>
 <body>
 	<h1>Profile Form Page</h1>
-     <form action="/sample/profile/request.html" method="POST">
+	<p>Username: <c:out value="${sessionScope.username }"></c:out>  </p>
+	<p>Password: <c:out value="${sessionScope.password }"></c:out>  </p>
+	<p>Message: <c:out value="${applicationScope.message }"></c:out>  </p>
+	<c:url var= "newUrl" value="/profile/request.html"/>
+     <form action='<c:out value="${newUrl}"/>' method="POST">
         ID: <input type="text" name="id"><br/>
         FirstName: <input type="text" name=firstname><br/>
         LastName: <input type="text" name=lastname><br/>
         Salary: <input type="text" name=salary><br/>
+        <c:set var="genderOpts" value="${applicationScope.gender}"/>
+        Gender: <select name = "gender">
+	        <c:forEach var="g" items="${genderOpts }">
+	        <option value="${g}"> <c:out value="${g}"></c:out> </option>
+	        </c:forEach>
+        </select> <br/>
+        Gender:
         Color: <input type="radio" name="color" value="red">RED&nbsp;
                <input type="radio" name="color" value="blue">BLUE&nbsp;
                <input type="radio" name="color" value="yellow">YELLOW<br/>
@@ -24,6 +36,6 @@
         <input type="submit" value="Add Profile" />
      </form>
      <br/>
-     <a href="/sample/profile/request.html?id=101&firstname=Juan&lastname=Luna">Click Profile</a>
+     <a href='<c:out value="${newUrl }"/>?id=101&firstname=Juan&lastname=Luna'>Click Profile</a>
 </body>
 </html>
