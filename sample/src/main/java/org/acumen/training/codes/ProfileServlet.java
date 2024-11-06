@@ -2,9 +2,11 @@ package org.acumen.training.codes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.InputMismatchException;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
@@ -22,7 +24,7 @@ import jakarta.servlet.http.HttpSession;
             //			  @WebInitParam(name="manager", value = "Sir Bene")})
 
 public class ProfileServlet extends HttpServlet{
-	
+	private static final Logger LOGGER = Logger.getLogger(ProfileServlet.class.getName());
 	private static final long serialVersionUID = 1L;
 	private String company;
 	private String manager;
@@ -93,7 +95,7 @@ public class ProfileServlet extends HttpServlet{
     	String qs = req.getQueryString();
     	String[] values = qs.split("&");
     	req.setAttribute("values", values);
-    	
+    	LOGGER.info("Values: %s".formatted(Arrays.toString(values)));
     	
     	RequestDispatcher dispatcher = req.getRequestDispatcher("/profile/params");
     	dispatcher.forward(req, resp);

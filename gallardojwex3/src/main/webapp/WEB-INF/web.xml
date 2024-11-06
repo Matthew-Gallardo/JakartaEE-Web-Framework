@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	version="6.0">
+
+	<display-name>gallardojwex3</display-name>
+
+
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/main.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>/book</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>add_book</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/add_book.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>add_book</servlet-name>
+		<url-pattern>/book/add_book</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Sign Up -->
+	<servlet>
+		<servlet-name>signup_form</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/signup_form.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>signup_form</servlet-name>
+		<url-pattern>/book/signup_form</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Login-->
+	<servlet>
+		<servlet-name>login_form</servlet-name>
+		<jsp-file>/WEB-INF/jsp/book/login_form.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>login_form</servlet-name>
+		<url-pattern>/book/login_form</url-pattern>
+	</servlet-mapping>
+
+
+	
+	
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

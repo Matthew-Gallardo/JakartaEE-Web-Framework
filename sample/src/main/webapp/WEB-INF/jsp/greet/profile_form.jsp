@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Profile Form Page</title>
 </head>
 <body>
 	<h1>Profile Form Page</h1>
@@ -13,7 +13,7 @@
 	<p>Password: <c:out value="${sessionScope.password }"></c:out>  </p>
 	<p>Message: <c:out value="${applicationScope.message }"></c:out>  </p>
 	<c:url var= "newUrl" value="/profile/request.html"/>
-     <form action='<c:out value="${newUrl}"/>' method="POST">
+     <form id="form1" action='<c:out value="${newUrl}"/>' method="POST">
         ID: <input type="text" name="id"><br/>
         FirstName: <input type="text" name=firstname><br/>
         LastName: <input type="text" name=lastname><br/>
@@ -33,9 +33,10 @@
               <input type="checkbox" name="food" value="burger patty">Burger Patty<br/>
         Comment: <textarea name="comment" rows="10" cols="50"></textarea>
         <input type="hidden" name="token" value="1234567" />
-        <input type="submit" value="Add Profile" />
+        <input type="submit" name="form1sub" value="Add Profile" />
      </form>
      <br/>
-     <a href='<c:out value="${newUrl }"/>?id=101&firstname=Juan&lastname=Luna'>Click Profile</a>
+     <a id ="hyper1" href='<c:out value="${newUrl }"/>?id=101&firstname=Juan&lastname=Luna'>Click Profile</a>
+     <a id ="hyper2" href='<c:out value="${newUrl }"/>'>Go Home</a>
 </body>
 </html>

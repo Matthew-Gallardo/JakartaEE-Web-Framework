@@ -16,7 +16,10 @@ public class HomeServlet extends HttpServlet{
 	private static final Logger LOGGER = Logger.getLogger(HomeServlet.class.getName());
 	
 	private static final long serialVersionUID = 1L;
-
+	@Override
+	public void init() throws ServletException {
+		LOGGER.info("Start HomeServlet");
+	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {

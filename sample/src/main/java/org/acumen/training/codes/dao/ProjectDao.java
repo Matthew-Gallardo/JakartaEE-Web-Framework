@@ -32,6 +32,7 @@ public class ProjectDao {
 			tx.commit();
 			return true;
 		} catch (Exception e) {
+			
 			try {
 				tx.rollback();
 			} catch (Exception e2) {
@@ -43,6 +44,7 @@ public class ProjectDao {
 		return false;
 	}
 	
+	@Transactional
 	public boolean updateProjnameById(LocalDate newProjid, Integer id){
 		EntityTransaction tx= em.getTransaction();
 		try {	
@@ -64,6 +66,7 @@ public class ProjectDao {
 		return false;
 	}
 	
+	@Transactional
 	public boolean deleteById(Integer id){
 		EntityTransaction tx= em.getTransaction();
 		try {	
@@ -84,6 +87,7 @@ public class ProjectDao {
 		return false;
 	}
 	
+	@Transactional
 	public List<Project> selectAllProject(){
 		List<Project> records = new ArrayList<>();
 		try {	

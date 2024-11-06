@@ -15,6 +15,8 @@ public class WelcomeServlet extends GenericServlet{
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
+		String tokenId= (String) req.getAttribute("tokenId");
+		System.out.println(tokenId);
 		out.write("Welcome to Jakarta EE world."); // text/plain
 		out.write("Another text here....");
 	}
