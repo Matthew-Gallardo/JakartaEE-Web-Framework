@@ -2,14 +2,6 @@
 
 This repository contains the implementation of a web framework using Jakarta EE and Java.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Repository Structure](#repository-structure)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Recent Changes](#recent-changes)
-- [License](#license)
-
 ## Introduction
 
 This project demonstrates how to build a web framework using Jakarta EE. It includes various modules and examples to help understand the core concepts and features of Jakarta EE.
